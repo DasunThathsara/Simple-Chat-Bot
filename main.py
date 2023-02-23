@@ -20,16 +20,25 @@ def find_solution(string):
 
 # Store the current values
 def store_data():
-    data_file = open("data.csv", 'w')
+    data_file2 = open("data.csv", 'w')
     for i in range(len(data["question"])):
-        data_file.write(data["question"][i] + ", " + data["respond"][i])
-        data_file.write("\n")
+        data_file2.write(data["question"][i] + ", " + data["respond"][i])
+        data_file2.write("\n")
+
+
+# Load the current values
+def load_data():
+    data_file1 = open("data.csv", 'r')
+    for i in data_file1:
+        elements = i.split()
+        data["question"].append(elements[:len(i.split()) - 1])
+        data["respond"].append(i.split()[1])
+        print(data)
 
 
 if __name__ == "__main__":
     data = {"question": [], "respond": []}
-
-    # for items in data_file:
+    load_data()
 
     while True:
         text = get_input()
