@@ -20,20 +20,21 @@ def find_solution(string):
 
 # Store the current values
 def store_data():
+    data_file = open("data.csv", 'w')
     for i in range(len(data["question"])):
         data_file.write(data["question"][i] + ", " + data["respond"][i])
         data_file.write("\n")
 
 
 if __name__ == "__main__":
-    data_file = open("data.csv", 'w')
     data = {"question": [], "respond": []}
 
     # for items in data_file:
 
     while True:
-        if get_input() == "i want to exit from the chat":
-            print(">> Okay, see you again...")
-            break
-
+        text = get_input()
         store_data()
+        if text == "i want to exit from the chat":
+            print(">> Okay, see you again...")
+
+            break
