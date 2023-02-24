@@ -11,6 +11,11 @@ def get_input():
 
 # Find the better solution for the given question using dataset
 def find_solution(string):
+    for element in data["question"]:
+        if string in element or element in string:
+            print(">>", data["respond"][data["question"].index(element)])
+            return
+
     if string in data["question"]:
         print(">>", data["respond"][data["question"].index(string)])
     else:
