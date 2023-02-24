@@ -1,3 +1,5 @@
+import time
+
 # Get the user input
 def get_input():
     input_string = input(">> ").lower()
@@ -44,6 +46,15 @@ if __name__ == "__main__":
         load_data()
     except IndexError:
         pass
+
+    if int(time.strftime("%H", time.localtime())) < 12:
+        print(">> Good Morning! How can I help you?")
+    elif int(time.strftime("%H", time.localtime())) < 16:
+        print(">> Good Afternoon! How can I help you?")
+    elif int(time.strftime("%H", time.localtime())) < 20:
+        print(">> Good Evening! How can I help you?")
+    else:
+        print(">> Good Night! How can I help you?")
 
     while True:
         text = get_input()
