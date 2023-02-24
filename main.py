@@ -20,25 +20,30 @@ def find_solution(string):
 
 # Store the current values
 def store_data():
-    data_file2 = open("data.csv", 'w')
+    data_file3 = open("questions.csv", 'w')
+    data_file4 = open("responds.csv", 'w')
     for i in range(len(data["question"])):
-        data_file2.write(data["question"][i] + ", " + data["respond"][i])
-        data_file2.write("\n")
+        data_file3.write(data["question"][i] + "\n")
+        data_file4.write(data["respond"][i] + "\n")
 
 
 # Load the current values
 def load_data():
-    data_file1 = open("data.csv", 'r')
+    data_file1 = open("questions.csv", 'r')
+    data_file2 = open("responds.csv", 'r')
     for i in data_file1:
-        elements = i.split()
-        data["question"].append(elements[:len(i.split()) - 1])
-        data["respond"].append(i.split()[1])
-        print(data)
+        data["question"].append(i.strip())
+
+    for i in data_file2:
+        data["respond"].append(i.strip())
 
 
 if __name__ == "__main__":
     data = {"question": [], "respond": []}
-    load_data()
+    try:
+        load_data()
+    except IndexError:
+        pass
 
     while True:
         text = get_input()
