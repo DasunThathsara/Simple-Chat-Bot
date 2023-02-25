@@ -1,5 +1,6 @@
 import time
 
+
 # Get the user input
 def get_input():
     input_string = input(">> ").lower()
@@ -11,6 +12,9 @@ def get_input():
 
 # Find the better solution for the given question using dataset
 def find_solution(string):
+    if "time now" in string:
+        print(">> Time is", time.strftime("%H:%M:%S", time.localtime()))
+        return
     for element in data["question"]:
         if string in element or element in string:
             print(">>", data["respond"][data["question"].index(element)])
