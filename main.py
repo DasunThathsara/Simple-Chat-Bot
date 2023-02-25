@@ -1,4 +1,42 @@
 import time
+import requests
+from bs4 import BeautifulSoup
+from geopy.geocoders import Nominatim
+
+
+# # function for get current geolocation
+# def get_location():
+#     geoLoc = Nominatim(user_agent="GetLoc")
+#     locname = geoLoc.reverse("39.2138905, -79.6371124")
+#     print(locname.address)
+#
+# def f ():
+#     geolocator = Nominatim(user_agent="geoapiExercises")
+#     location = geolocator.geocode("my location")
+#     print(location.latitude, location.longitude)
+#     get_location()
+# f()
+
+
+# find the weather of the given city
+def weather(city):
+    url = "https://www.google.com/search?q=" + "weather" + city
+    html = requests.get(url).content
+    soup = BeautifulSoup(html, 'html.parser')
+    temp = soup.find('div', attrs={'class': 'BNeawe iBp4i AP7Wnd'}).text
+    str1 = soup.find('div', attrs={'class': 'BNeawe tAd8D AP7Wnd'}).text
+    data = str1.split('\n')
+    time1 = data[0]
+    sky = data[1]
+    str_d = soup.findAll('div', attrs={'class': 'BNeawe s3v9rd AP7Wnd'})[5].text
+    pos = str_d.find('Wind')
+    other_data = str_d[pos:]
+
+    # printing all the data
+    print(">> City           :", temp)
+    print(">> Temperature    :", temp)
+    print(">> Time           :", time1)
+    print(">> Sky Description: ", sky)
 
 
 # Get the user input
@@ -12,9 +50,16 @@ def get_input():
 
 # Find the better solution for the given question using dataset
 def find_solution(string):
+    # Telling the time
     if "time now" in string:
         print(">> Time is", time.strftime("%H:%M:%S", time.localtime()))
         return
+
+    # Telling the whether
+    if "whether of" in string or "whether in" in string or "whether" in string:
+        weather(string.split()[-1])
+        return
+
     for element in data["question"]:
         if string in element or element in string:
             print(">>", data["respond"][data["question"].index(element)])
