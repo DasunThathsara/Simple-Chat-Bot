@@ -93,6 +93,15 @@ def find_solution(string):
         print(">> Your name is", data["personal_details"][0])
         return
 
+    # Age of the user
+    if "my age is" in string:
+        data["personal_details"].append(string.split()[-1])
+        print(">> Your age is", data["personal_details"][1])
+        return
+    if "what is my age" in string:
+        print(">> Your age is", data["personal_details"][1])
+        return
+
     if string in data["question"]:
         print(">>", data["respond"][data["question"].index(string)])
     else:
