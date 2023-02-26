@@ -50,23 +50,28 @@ def get_input():
 
 # Find the better solution for the given question using dataset
 def find_solution(string):
-    time_str = ""
-    if int(time.strftime("%H", time.localtime())) < 12:
-        time_str = "good morning"
-    elif int(time.strftime("%H", time.localtime())) < 16:
-        time_str = "good afternoon"
-    elif int(time.strftime("%H", time.localtime())) < 20:
-        time_str = "good evening"
-    else:
-        time_str = "good night"
-
-    if not((time_str in string) or (string in time_str)):
-        print(">>", time_str.title() + "!")
-        return
+    # time_str = ""
+    # if int(time.strftime("%H", time.localtime())) < 12:
+    #     time_str = "good morning"
+    # elif int(time.strftime("%H", time.localtime())) < 16:
+    #     time_str = "good afternoon"
+    # elif int(time.strftime("%H", time.localtime())) < 20:
+    #     time_str = "good evening"
+    # else:
+    #     time_str = "good night"
+    #
+    # if not((time_str in string) or (string in time_str)):
+    #     print(">>", time_str.title() + "!")
+    #     return
 
     # Telling the time
     if "time now" in string:
         print(">> Time is", time.strftime("%H:%M:%S", time.localtime()))
+        return
+
+    # Telling the date
+    if "date today" in string or "the date" in string:
+        print(">> Date is", time.strftime("%d/%m/%Y", time.localtime()))
         return
 
     # Telling the whether
