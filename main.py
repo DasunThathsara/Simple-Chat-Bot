@@ -129,20 +129,27 @@ def find_solution(string):
 def store_data():
     data_file3 = open("questions.csv", 'w')
     data_file4 = open("responds.csv", 'w')
+    data_file5 = open("personal.csv", 'w')
     for i in range(len(data["question"])):
         data_file3.write(data["question"][i] + "\n")
         data_file4.write(data["respond"][i] + "\n")
+
+    for i in range(len(data["personal_details"])):
+        data_file5.write(data["personal_details"][i] + "\n")
 
 
 # Load the current values
 def load_data():
     data_file1 = open("questions.csv", 'r')
     data_file2 = open("responds.csv", 'r')
+    data_file6 = open("persona.csv", 'r')
     for i in data_file1:
         data["question"].append(i.strip())
 
     for i in data_file2:
         data["respond"].append(i.strip())
+
+
 
 
 if __name__ == "__main__":
