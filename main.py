@@ -76,7 +76,6 @@ def find_solution(string):
 
     # Telling the whether
     if "whether of" in string or "whether in" in string or "whether" in string:
-        print("-------------------------------------------------------------------------------")
         weather(string.split()[-1])
         return
 
