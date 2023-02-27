@@ -142,14 +142,15 @@ def store_data():
 def load_data():
     data_file1 = open("questions.csv", 'r')
     data_file2 = open("responds.csv", 'r')
-    data_file6 = open("persona.csv", 'r')
+    data_file6 = open("personal.csv", 'r')
     for i in data_file1:
         data["question"].append(i.strip())
 
     for i in data_file2:
         data["respond"].append(i.strip())
 
-
+    for i in data_file6:
+        data["personal_details"].append(i.strip())
 
 
 if __name__ == "__main__":
