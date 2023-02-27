@@ -94,7 +94,6 @@ def find_solution(string):
             print(">> Your name is", data["personal_details"][0])
             return
 
-
         # Age of the user
         if "my age is" in string:
             data["personal_details"].append(string.split()[-1])
