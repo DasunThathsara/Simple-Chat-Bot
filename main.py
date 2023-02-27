@@ -76,6 +76,7 @@ def find_solution(string):
 
     # Telling the whether
     if "whether of" in string or "whether in" in string or "whether" in string:
+        print("-------------------------------------------------------------------------------")
         weather(string.split()[-1])
         return
 
@@ -84,31 +85,37 @@ def find_solution(string):
             print(">>", data["respond"][data["question"].index(element)])
             return
 
-    # Name of the user
-    if "my name is" in string:
-        data["personal_details"].append(string.split()[-1])
-        print(">> Hello", data["personal_details"][0] + "!")
-        return
-    if "what is my name" in string:
-        print(">> Your name is", data["personal_details"][0])
-        return
+    try:
+        # Name of the user
+        if "my name is" in string:
+            data["personal_details"].append(string.split()[-1])
+            print(">> Hello", data["personal_details"][0] + "!")
+            return
+        if "what is my name" in string:
+            print(">> Your name is", data["personal_details"][0])
+            return
 
-    # Age of the user
-    if "my age is" in string:
-        data["personal_details"].append(string.split()[-1])
-        print(">> Your age is", data["personal_details"][1])
-        return
-    if "what is my age" in string:
-        print(">> Your age is", data["personal_details"][1])
-        return
 
-    # Location of the user
-    if "my location is" in string:
-        data["personal_details"].append(string.split()[-1])
-        print(">> Your location is", data["personal_details"][2])
-        return
-    if "what is my location" in string:
-        print(">> Your location is", data["personal_details"][2])
+        # Age of the user
+        if "my age is" in string:
+            data["personal_details"].append(string.split()[-1])
+            print(">> Your age is", data["personal_details"][1])
+            return
+        if "what is my age" in string:
+            print(">> Your age is", data["personal_details"][1])
+            return
+
+        # Location of the user
+        if "my location is" in string:
+            data["personal_details"].append(string.split()[-1])
+            print(">> Your location is", data["personal_details"][2])
+            return
+        if "what is my location" in string:
+            print(">> Your location is", data["personal_details"][2])
+            return
+
+    except IndexError:
+        print(">> Sorry.. I don't know it :/")
         return
 
     if string in data["question"]:
