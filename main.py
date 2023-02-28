@@ -25,9 +25,9 @@ def weather(city):
     soup = BeautifulSoup(html, 'html.parser')
     temp = soup.find('div', attrs={'class': 'BNeawe iBp4i AP7Wnd'}).text
     str1 = soup.find('div', attrs={'class': 'BNeawe tAd8D AP7Wnd'}).text
-    data = str1.split('\n')
-    time1 = data[0]
-    sky = data[1]
+    data_set = str1.split('\n')
+    time1 = data_set[0]
+    sky = data_set[1]
     str_d = soup.findAll('div', attrs={'class': 'BNeawe s3v9rd AP7Wnd'})[5].text
     pos = str_d.find('Wind')
     other_data = str_d[pos:]
