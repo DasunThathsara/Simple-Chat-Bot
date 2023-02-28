@@ -77,7 +77,7 @@ def find_solution(string):
             data["personal_details"][0] = string.split()[-1]
             print(">> Hello", data["personal_details"][0] + "!")
             return
-        if "what is my name" in string:
+        elif "what is my name" in string:
             print(">> Your name is", data["personal_details"][0])
             return
 
