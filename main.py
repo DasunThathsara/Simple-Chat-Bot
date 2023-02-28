@@ -87,7 +87,7 @@ def find_solution(string):
     try:
         # Name of the user
         if "my name is" in string:
-            data["personal_details"].append(string.split()[-1])
+            data["personal_details"][0] = string.split()[-1]
             print(">> Hello", data["personal_details"][0] + "!")
             return
         if "what is my name" in string:
@@ -96,7 +96,7 @@ def find_solution(string):
 
         # Age of the user
         if "my age is" in string:
-            data["personal_details"].append(string.split()[-1])
+            data["personal_details"][1] = string.split()[-1]
             print(">> Your age is", data["personal_details"][1])
             return
         if "what is my age" in string:
@@ -105,7 +105,7 @@ def find_solution(string):
 
         # Location of the user
         if "my location is" in string:
-            data["personal_details"].append(string.split()[-1])
+            data["personal_details"][2] = string.split()[-1]
             print(">> Your location is", data["personal_details"][2])
             return
         if "what is my location" in string:
