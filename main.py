@@ -104,7 +104,7 @@ def find_solution(string):
             return
 
         # Location of the user
-        if "my location is" in string:
+        if "my location is" in string or "I am from" in string or "live in" in string:
             data["personal_details"][2] = string.split()[-1]
             print(">> Your location is", data["personal_details"][2])
             return
@@ -154,7 +154,7 @@ def load_data():
 
 
 if __name__ == "__main__":
-    data = {"question": [], "respond": [], "personal_details": []}
+    data = {"question": [], "respond": [], "personal_details": ["", "", ""]}
     try:
         load_data()
     except IndexError:
