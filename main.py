@@ -95,7 +95,7 @@ def find_solution(string):
             data["personal_details"][2] = string.split()[-1]
             print(">> Your location is", data["personal_details"][2])
             return
-        if "what is my location" in string:
+        if "what is my location" in string or "where do I live" in string:
             print(">> Your location is", data["personal_details"][2])
             return
 
@@ -136,8 +136,9 @@ def load_data():
     for i in data_file2:
         data["respond"].append(i.strip())
 
+    count = 0
     for i in data_file6:
-        data["personal_details"].append(i.strip())
+        data["personal_details"][count] = i.strip()
 
 
 if __name__ == "__main__":
