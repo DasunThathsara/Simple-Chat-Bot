@@ -104,6 +104,9 @@ def find_solution(string):
         return
 
     if string in data["question"]:
+        if "hello" in string and data["personal_details"][0] != "":
+            print(">> Hello", data["personal_details"][0] + "!")
+            return
         print(">>", data["respond"][data["question"].index(string)])
     else:
         data["question"].append(string)
