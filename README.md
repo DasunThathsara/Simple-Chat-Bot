@@ -10,6 +10,10 @@
   The user can ask the bot any question. If it is in the dataset, a bot can reply for it. If it is not, the bot was asking for a suggestion for that question from the user and storing it for future questions. It has another type for storing the personal details of the user (like name, age, location, blood group, etc.). And it has the knowledge to tell the current time and date. And it can also tell you the location details for any given location.
 </p>
 
+<p>
+  This algorithm doesn't use any python libraries or machine learning models. It only uses pure python.
+</p>
+
 
 <br />
 <p>
