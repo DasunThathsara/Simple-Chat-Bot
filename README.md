@@ -15,7 +15,6 @@
 </p>
 
 
-<br />
 <hr />
   <p align="center">
     <a href="https://github.com/UltiRequiem/python-projects-for-intermediates/blob/main/LICENSE">
