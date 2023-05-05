@@ -34,9 +34,9 @@ def weather(city):
 
     # printing all the data
     print(">> City           :", temp)
-    print(">> Temperature    :", temp)
-    print(">> Time           :", time1)
-    print(">> Sky Description: ", sky)
+    print("   Temperature    :", temp)
+    print("   Time           :", time1)
+    print("   Sky Description: ", sky)
 
 
 # Get the user input
@@ -62,7 +62,11 @@ def find_solution(string):
         return
 
     # Telling the whether
-    if "whether of" in string or "whether in" in string or "whether" in string:
+    if string.split()[-1] == "whether".lower():
+        weather(input(">> What is your location\n>> ").lower())
+        return
+
+    elif "whether of" in string or "whether in" in string or "whether" in string:
         weather(string.split()[-1])
         return
 
